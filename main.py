@@ -835,8 +835,7 @@ class SettingsPanel(QWidget):
         """)
         # Auto-detect local IPs
         detected = self._detect_local_ips()
-        if detected:
-            self._ip_edit.setText(detected[0])
+        self._ip_edit.setText("0.0.0.0")
         ip_row.addWidget(ip_lbl)
         ip_row.addWidget(self._ip_edit)
         wifi_layout.addLayout(ip_row)

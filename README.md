@@ -1,5 +1,7 @@
 # POS Printer Emulator
 
+![POS Printer Emulator Screenshot](screenshot.png)
+
 A simple Python desktop application built with PyQt6 that emulates a standard thermal receipt printer. It allows developers to test Point of Sale (POS) printing functionality without needing a physical hardware printer.
 
 The application starts a server that listens for incoming connection requests (via TCP/IP or Bluetooth RFCOMM), parses the ESC/POS printer command streams, and renders them on-screen as a virtual receipt.

@@ -94,7 +94,18 @@ receipt = b''.join([
 ])
 
 print(f"Connecting to {HOST}:{PORT} ...")
-with socket.create_connection((HOST, PORT), timeout=5) as s:
-    s.sendall(receipt)
-    print(f"Sent {len(receipt)} bytes of ESC/POS receipt.")
-print("Done.")
+try:
+    with socket.create_connection((HOST, PORT), timeout=5) as s:
+        s.sendall(receipt)
+        print(f"Sent {len(receipt)} bytes of ESC/POS receipt.")
+    print("Done.")
+except ConnectionRefusedError:
+    print(f"Error: Connection refused. Is the printer emulator running on {HOST}:{PORT}?")
+    sys.exit(1)
+except socket.timeout:
+    print(f"Error: Connection timed out trying to reach {HOST}:{PORT}.")
+    sys.exit(1)
+except Exception as e:
+    print(f"Error: An unexpected error occurred: {e}")
+    sys.exit(1)
+
