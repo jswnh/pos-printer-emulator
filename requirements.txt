@@ -1,0 +1,5 @@
+PyQt6>=6.5.0
+netifaces2>=0.0.1
+pyserial>=3.5
+# Bluetooth on Windows uses Python's built-in socket (AF_BTH) — no extra package needed.
+# On Linux/Mac install pybluez if you want Bluetooth support.
